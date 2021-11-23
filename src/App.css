@@ -8,7 +8,7 @@
   }
 }
 
-.container {
+.pageContainer {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,8 +19,15 @@
   color: white;
 }
 
-.square {
+.sudokuContainer {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+.sudokuSquare {
   background-color: #eee;
+  flex: 4;
 }
 .square > div {
   color: #fff;
