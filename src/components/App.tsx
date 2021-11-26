@@ -5,6 +5,7 @@ import Square from './Square';
 function App() {
 
 	type SquareType = {
+		id: number;
 		digit: number;
 		index: number;
 		shown: boolean;
@@ -40,16 +41,19 @@ function App() {
 	}
 
 	function createSudokValues() {
+		let idIncremented: number = 0;
 		for ( let y = 1; y <= 9; y++ ) {
 			for ( let columnIndex = 1; columnIndex <= 9; columnIndex++ ) {
 				while (row.length <= 9) {
 						row.push(
 							{
+								id: idIncremented,
 								digit: unusedDigitInRowAndColumn(sudoku, row, columnIndex),
 								index: columnIndex,
 								shown: true
 							}
 						);
+						idIncremented++;
 						break;
 				}
 			}
@@ -64,8 +68,6 @@ function App() {
 		console.log(createSudokValues())
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	  }, []);
-//     const listItems = links.map((link) =>
-//     <li key={link.endpoint}>{link.endpoint}</li> 
 	return (
 		<div className="App">
 			<div className="pageContainer">
@@ -74,8 +76,8 @@ function App() {
 				</p>
 				<div className="sudokuContainer">
 					{
-						createSudokValues().map((square) =>
-						<Square></Square>
+						createSudokValues().map((square, idx) =>
+						<Square key={idx}></Square>
 						)
 					}
 				</div>
