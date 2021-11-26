@@ -61,9 +61,11 @@ function App() {
 	}
 
 	useEffect(() => {
-
+		console.log(createSudokValues())
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	  }, []);
-
+//     const listItems = links.map((link) =>
+//     <li key={link.endpoint}>{link.endpoint}</li> 
 	return (
 		<div className="App">
 			<div className="pageContainer">
@@ -71,16 +73,11 @@ function App() {
 					Sudoku
 				</p>
 				<div className="sudokuContainer">
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
+					{
+						createSudokValues().map((square) =>
+						<Square></Square>
+						)
+					}
 				</div>
 			</div>
 		</div>
