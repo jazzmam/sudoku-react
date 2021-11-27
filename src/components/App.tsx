@@ -38,6 +38,7 @@ function App() {
 		for ( let y = 1; y <= 9; y++ ) {
 			for ( let columnIndex = 1; columnIndex <= 9; columnIndex++ ) {
 				while (row.length <= 9) {
+					console.log('row ', row)
 					generatedUnusedDigit = unusedDigitInRowAndColumn(sudoku, row, columnIndex);
 					row.push(
 						{
@@ -48,19 +49,25 @@ function App() {
 					);
 					break;
 				}
+				
 			}
+			// end of inner loop
+
             // eslint-disable-next-line no-loop-func
             setSudoku(prevSquares => [ ...prevSquares, ...row]);
 			row = [];
+			// end of outer loop
 		}
-		//return sudoku;
 	}
+
+	useEffect(() => {
+		console.log('sudoku ', sudoku)
+	});
 
 	useEffect(() => {
 		createSudokValues();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	console.log(sudoku)
 
 	return (
 		<div className="App">
