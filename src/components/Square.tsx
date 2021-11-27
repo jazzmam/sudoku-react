@@ -1,9 +1,10 @@
 import '../App.css';
+import { SquareType } from '../interfaces/customInterfaces';
 
-function Square() {
+const Square = (square: SquareType) => {
   return (
     <div className="sudokuSquare">
-        7777
+      {square.digit}
 		</div>
   );
 }

@@ -27,8 +27,7 @@
 
 .sudokuSquare {
   background-color: #eee;
- /*flex: 4;*/
-  flex-basis: 11.11%;
+  flex-basis: 8%;
   outline: 1px solid #333;
   color: #333;
 }
